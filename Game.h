@@ -13,6 +13,8 @@ class Game {
 		void rules();
 		string getWord();
 		void play();
+		void memError();
+		void fileError();
 };
 
 #endif
