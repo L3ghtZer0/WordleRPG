@@ -29,7 +29,7 @@ Game::Game() : tries(0) {
 
 
     file.clear();
-	file.seekg(0);
+    file.seekg(0);
 
     
     srand(time(NULL)); // Seed to produce a random number
