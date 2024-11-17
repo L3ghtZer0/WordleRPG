@@ -5,31 +5,49 @@
 #include <fstream>
 #include <vector>
 #include <cstdlib>
+#include <stdio.h>  // Add these headers
+#include <stdlib.h> // 
+#include <time.h>  //
 
 using namespace std;
-
+// Try this
 Game::Game() : tries(0) {
+
+    try
+    {
 	ifstream file("fiveLetterWords.txt");
-	
-	int totalWords = 0;
-	string line;
-	
-	while (getline(file, line)) {
+        if (!file)
+        {
+            string wrongFile = "File not found.";
+            throw wrongFile;
+        }
+    file.open("fiveLetterWords.txt", ios::in);
+
+    while (getline(file, line)) {
 		totalWords++;
 	}
 
-	file.clear();
+
+    file.clear();
 	file.seekg(0);
 
-	srand(42);
-	int randomIndex = rand() % totalWords;
+    
+    srand(time(NULL)); // Seed to produce a random number
 
-	for (int i = 0; i < randomIndex; i++) {
+    int randomIndex = rand() %  totalWords;
+
+    for (int i = 0; i < randomIndex; i++) {
 		getline(file, line);
 	}
 	word = line;
-}
 
+
+    }
+    catch (wrongFile)
+    {
+        fileError();
+    }
+}
 string Game::getWord() {
 	return word;
 }
