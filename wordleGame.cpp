@@ -15,7 +15,7 @@ cout << "Hello!";
   int choice;
   
   do {
-      cout << "Wordle ..." << endl;
+      cout << "Wordle ..." << endl << endl;
       cout << "1. See the Rules" << endl;
       cout << "2. Play the Game" << endl;
       cout << "3. See Performance Report" << endl;
@@ -29,6 +29,7 @@ cout << "Hello!";
               wordle.rules();
               break;
           case 2:
+              cout << "Wordle...\n\n";
               wordle.play();
               break;
           case 3:
