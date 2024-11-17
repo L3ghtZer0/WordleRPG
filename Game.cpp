@@ -5,31 +5,55 @@
 #include <fstream>
 #include <vector>
 #include <cstdlib>
+#include <stdio.h>  // Add these headers
+#include <stdlib.h> // 
+#include <time.h>  //
+#include <new>
 
 using namespace std;
-
+// Try this
 Game::Game() : tries(0) {
-	ifstream file("fiveLetterWords.txt");
-	
+
+	// added these definitions back in
 	int totalWords = 0;
 	string line;
-	
-	while (getline(file, line)) {
-		totalWords++;
+
+	try
+	{
+		ifstream file("fiveLetterWords.txt");
+		if (!file)
+		{
+			string wrongFile = "File not found.";
+			throw wrongFile;
+		}
+		//file.open("fiveLetterWords.txt", ios::in);
+
+		while (getline(file, line)) {
+			totalWords++;
+		}
+
+
+		file.clear();
+		file.seekg(0);
+
+
+		srand(time(NULL)); // Seed to produce a random number
+
+		int randomIndex = rand() % totalWords;
+
+		for (int i = 0; i < randomIndex; i++) {
+			getline(file, line);
+		}
+		word = line;
+
+
+	}	// for some reason putting string works, for now, we were still running into an error with wrong file for whatever reason
+	catch (string wrongFile)
+	{
+		fileError();
+		cout << "Please attach fiveLetterWords.txt to the repository.\n";
 	}
-
-	file.clear();
-	file.seekg(0);
-
-	srand(42);
-	int randomIndex = rand() % totalWords;
-
-	for (int i = 0; i < randomIndex; i++) {
-		getline(file, line);
-	}
-	word = line;
 }
-
 string Game::getWord() {
 	return word;
 }
@@ -42,7 +66,7 @@ void Game::rules() {
 }
 
 void Game::play() {
-	vector<string> guesses(6,"    ");
+	vector<string> guesses(6, "    ");
 
 	while (tries < 6) {
 		cout << "Round " << tries + 1 << endl;
@@ -72,4 +96,9 @@ void Game::play() {
 
 	cout << "Sorry, you didn't guess the word. The correct word was: " << word << endl;
 	PerformanceReport::saveScore(0);
+}
+
+void Game::fileError()
+{
+	cout << "ERROR: Wrong file was opened\n";
 }
