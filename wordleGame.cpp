@@ -29,7 +29,7 @@ cout << "Hello!";
               wordle.rules();
               break;
           case 2:
-              cout << "Wordle...\n\n";
+              cout << "\nWordle...\n\n";
               wordle.play();
               break;
           case 3:
