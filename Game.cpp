@@ -46,6 +46,7 @@ Game::Game() : tries(0) {
     catch (wrongFile)
     {
         fileError();
+	cout << "Please attach fiveLetterWords.txt to the repository.\n";
     }
 }
 string Game::getWord() {
@@ -90,4 +91,9 @@ void Game::play() {
 
 	cout << "Sorry, you didn't guess the word. The correct word was: " << word << endl;
 	PerformanceReport::saveScore(0);
+}
+
+void Game::fileError()
+{
+    cout << "ERROR: Wrong file was opened\n";
 }
