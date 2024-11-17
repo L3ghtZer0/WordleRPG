@@ -29,10 +29,10 @@ void PerformanceReport::displayReport() {
 	double winPercentage = (double(totalWins) / totalGames) * 100;
 	double averageTries = totalWins > 0 ? (double(totalTries) / totalWins) : 0;
 
-	cout << "Performance Report:" << endl;
+	cout << "\nPerformance Report:" << endl;
 	cout << "Games Played: " << totalGames << endl;
 	cout << "Win Percentage: " << winPercentage << "%" << endl;
-	cout << "Average Tries (for wins): " << averageTries << endl;
+	cout << "Average Tries (for wins): " << averageTries << endl << endl;
 }
 
 void PerformanceReport::saveScore(int score) {
