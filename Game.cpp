@@ -35,10 +35,10 @@ string Game::getWord() {
 }
 
 void Game::rules() {
-	cout << "In wordle you need to guess the 5-letter word in 6 or less tries" << endl;
+	cout << "\nIn wordle you need to guess the 5-letter word in 6 or less tries" << endl;
 	cout << "Green means the letter is in the correct position" << endl;
 	cout << "Yellow means the letter is in the word but in the wrong position" << endl;
-	cout << "Gray means the letter is not in the word" << endl;
+	cout << "Gray means the letter is not in the word" << endl << endl;
 }
 
 void Game::play() {
