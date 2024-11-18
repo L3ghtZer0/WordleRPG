@@ -48,7 +48,7 @@ void Grid::displayFeedback(const string& word, const string& guess) {
 			setConsoleColor(RESET);
 		}
 		// If it's a repeat letter
-        	else if (letterCount[guess[i]] > 1) {
+        	else if (charExistsInString(word, letterCount[guess[i]] > 1) {
             		setConsoleColor(RED);
         	}
 		else {
