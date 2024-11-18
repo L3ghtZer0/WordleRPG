@@ -1,6 +1,7 @@
 #include "Grid.h"
 #include <Windows.h>
 #include <iostream>
+#include <unordered_map>
 using namespace std;
 
 const int GREEN = 0x2F, YELLOW = 0x6F, GRAY = 0x8F, RESET = 0x07;
@@ -30,6 +31,11 @@ bool Grid::charExistsInString(const string& str, char ch) {
 void Grid::displayFeedback(const string& word, const string& guess) {
 	cout << "---------------------" << endl;
 	cout << "|";
+
+	unordered_map<char, int> letterCount;
+    	for (char ch : guess) {
+        letterCount[ch]++;
+    	}
 	
 	for (int i = 0; i < stringLength(word); i++) {
 		if (guess[i] == word[i]) {
@@ -41,6 +47,10 @@ void Grid::displayFeedback(const string& word, const string& guess) {
 		else if (guess[i] == NULL) {
 			setConsoleColor(RESET);
 		}
+		// If it's a repeat letter
+        	else if (letterCount[guess[i]] > 1) {
+            		setConsoleColor(RED);
+        	}
 		else {
 			setConsoleColor(GRAY);
 		}
