@@ -58,11 +58,10 @@ Functionality, Implementation, and Program Requirements:
 using namespace std;
 int main()
 {
-cout << "Hi";
-cout << "Hello!";
   int choice;
   
   do {
+     // Menu to prompt user for ther choice
       cout << "Wordle ..." << endl;
       cout << "1. See the Rules" << endl;
       cout << "2. Play the Game" << endl;
@@ -74,21 +73,26 @@ cout << "Hello!";
       Game wordle;
       switch (choice) {
           case 1:
+             // Calls the Game class member function rules() to display rules.
               wordle.rules();
               break;
           case 2:
+             // Calls the Game class member function  play() to allow user to play the wordle text game
               wordle.play();
               break;
           case 3:
+             // Calls the PerformanceReport class member function displayReport() to display user's performance on n attempts
               PerformanceReport::displayReport();
               break;
           case 4:
+             // Goodbye message when user decides to quit program
               cout << "Thank you for playing Wordle!" << endl;
               break;
           default:
+             // Input validation
               cout << "Invalid choice. Please try again." << endl;
       }
-  } while (choice != 4);
+  } while (choice != 4); // Keeps the menu iterating until the user quits
 
   return 0;
 }
