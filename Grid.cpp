@@ -2,7 +2,7 @@
 #include "Grid.h"
 #include <Windows.h>
 #include <iostream>
-#include <unordered_map>
+#include <unordered_map> // This header allows us to find any repeated letters that have already been solved in a guess
 
 // namespace
 using namespace std;
@@ -62,7 +62,6 @@ void Grid::displayFeedback(const string& word, const string& guess) {
 				setConsoleColor(RED); // if the letter is in the word, but is put two times, mark them both red
 			}
 		}
-		// If it's a repeat letter
 		else {
 			setConsoleColor(GRAY); // if none of those are true, then mark it as gray
 		}
