@@ -41,8 +41,8 @@ void Grid::displayFeedback(const string& word, const string& guess) {
 		if (guess[i] == word[i]) {
 			setConsoleColor(GREEN);
 		}
-		else if (charExistsInString(word, guess[i])) {
-			setConsoleColor(YELLOW);
+		else if (charExistsInString(word, guess[i]) && letterCount[guess[i]] < 2) {
+    			setConsoleColor(YELLOW);
 		}
 		else if (guess[i] == NULL) {
 			setConsoleColor(RESET);
