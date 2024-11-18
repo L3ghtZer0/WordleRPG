@@ -28,7 +28,7 @@ bool Grid::charExistsInString(const string& str, char ch) {
 }
 
 void Grid::displayFeedback(const string& word, const string& guess) {
-	cout << "---------------------" << endl;
+	
 	cout << "|";
 	
 	for (int i = 0; i < stringLength(word); i++) {
