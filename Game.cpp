@@ -14,7 +14,6 @@ using namespace std;
 // Try this
 Game::Game() : tries(0) {
 
-	// added these definitions back in
 	int totalWords = 0;
 	string line;
 
@@ -47,7 +46,7 @@ Game::Game() : tries(0) {
 		word = line;
 
 
-	}	// for some reason putting string works, for now, we were still running into an error with wrong file for whatever reason
+	}
 	catch (string wrongFile)
 	{
 		fileError();
@@ -66,7 +65,7 @@ void Game::rules() {
 }
 
 void Game::play() {
-	vector<string> guesses(6, "    ");
+	vector<string> guesses(6, "     ");
 
 	while (tries < 6) {
 		cout << "Round " << tries + 1 << endl;
@@ -83,7 +82,7 @@ void Game::play() {
 
 		guesses[tries] = guess;
 		tries++;
-
+		cout << "---------------------" << endl;
 		for (int i = 0; i < 6; i++) {
 			Grid::displayFeedback(word, guesses[i]);
 		}
