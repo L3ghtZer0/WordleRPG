@@ -41,15 +41,15 @@ void Grid::displayFeedback(const string& word, const string& guess) {
 		if (guess[i] == word[i]) {
 			setConsoleColor(GREEN);
 		}
-		else if (charExistsInString(word, guess[i]) && letterCount[guess[i]] < 2) {
+		else if (charExistsInString(word, guess[i])) {
     			setConsoleColor(YELLOW);
+			if (charExistsInString(word, letterCount[guess[i]] > 1))
+			{
+				setConsoleColor(RED);
+			}
 		}
 		else if (guess[i] == NULL) {
 			setConsoleColor(RESET);
-		}
-		// If it's a repeat letter
-        	else if (charExistsInString(word, letterCount[guess[i]] > 1) {
-            		setConsoleColor(RED);
         	}
 		else {
 			setConsoleColor(GRAY);
